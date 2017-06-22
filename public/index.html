@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>PlaceClone</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="/js/place.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <!-- The controls where our users will enter the coords and color to place. -->
+    <div class="controls">
+      X: <input type="number" min="0" max="50" id="x-coord">
+      <br>
+      Y: <input type="number" min="0" max="50" id="y-coord">
+      <br>
+      Color: <input type="color" id="color">
+      <br>
+      <button id="submit">Place Color</button>
+    </div>
+
+    <!-- This canvas holds our, well, canvas. -->
+    <canvas id="place" height="500" width="500"></canvas>
+  </body>
+</html>

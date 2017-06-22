@@ -1,0 +1,15 @@
+{
+  "name": "workshop-rplace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TJ Horner <tjhorner@srnd.org>",
+  "license": "WTFPL",
+  "dependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^2.0.3"
+  }
+}
