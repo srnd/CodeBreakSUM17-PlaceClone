@@ -13,7 +13,7 @@ var canvas = [ ]
 // Populate the canvas with initial values
 for(var row = 0; row < CANVAS_ROWS; row++){
   canvas[row] = [ ]
-
+  
   for(var col = 0; col < CANVAS_COLS; col++){
     canvas[row][col] = "#FFF"
   }
@@ -24,14 +24,16 @@ app.use(express.static("public"))
 
 // Listen for connections from socket.io clients
 io.on("connection", socket => {
-  // Send the entire canvas to the user
+  // Send the entire canvas to the user when they connect
   socket.emit("canvas", canvas)
 
   // This is fired when the client places a color on the canvas
   socket.on("color", data => {
     // First we validate that the position on the canvas exists
     if(data.row <= CANVAS_ROWS && data.row > 0 && data.col <= CANVAS_COLS && data.col > 0){
+      // Update the canvas
       canvas[data.row - 1][data.col - 1] = data.color
+      // Send the new canvas to all connected clients
       io.emit("canvas", canvas)
     }
   })
